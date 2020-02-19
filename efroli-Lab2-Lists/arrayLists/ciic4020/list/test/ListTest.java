@@ -57,11 +57,54 @@ public class ListTest {
 		System.out.println("Value of element at position 2 after set: " + theList.get(2));
 		printList(theList);
 		
-	}
+		
+	//Exercise 1 Tester
+		System.out.println("");
+		System.out.println("EXERCISE 1: TOTAL COUNT");
+		List<String>[] totalCountArray = new List<String>[3];
+		
+		List<String> totalCountTester = factory.newInstance();
+		totalCountTester.add("Apu");
+		totalCountTester.add("Amy");
+		totalCountTester.add("Moe");
+		totalCountArray[0] = totalCountTester;
+		
+		List<String> totalCountTester2 = factory.newInstance();
+		totalCountTester2.add("Apu");
+		totalCountTester2.add("Apu");
+		totalCountTester2.add("Joe");
+		totalCountArray[1] = totalCountTester;
+
+		List<String> totalCountTester3 = factory.newInstance();
+		totalCountTester2.add("Moe");
+		totalCountTester2.add("Amy");
+		totalCountTester2.add("Joe");
+		totalCountArray[2] = totalCountTester;
+
+		System.out.println("Expected:Total Count of Apu is 3");
+		System.out.println("Output: Total Count of Apu is " + totalCount("Apu", totalCountArray));
+	//END Exercise 1 Tester
+		
+	} //END MAIN 
 
 	private static void printList(List<String> theList) {
 		System.out.println("List size: " + theList.size());
 		for (String s : theList)
 			System.out.println(s);;
 	}
+	
+	//Exercise 1
+		public static int totalCount(String s, List<String>[] array) //array of lists, each of type List<String>
+		{
+			//finds total number of copies of string s 
+			//in all the lists in the array
+			int totalCount = 0;
+			for(int i=0; i < array.length; i++)
+			{
+				if(array[i].equals(s))
+					totalCount++;
+			}
+			
+			return totalCount; //dummy 
+		}	
 }
