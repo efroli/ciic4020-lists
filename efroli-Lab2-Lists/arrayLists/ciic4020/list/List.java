@@ -17,4 +17,7 @@ public interface List<E> extends Iterable<E> {
 	public boolean isEmpty();
 	public boolean contains(E obj);
 	public void clear();
+	
+	//Exercise 2
+	public int replaceAll(E e, E f);
 }

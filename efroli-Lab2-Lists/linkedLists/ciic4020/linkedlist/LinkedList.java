@@ -283,4 +283,38 @@ public class LinkedList<E> implements List<E> {
 		while (size() > 0)
 			remove(0);
 	}
+
+	//Exercise 2
+	@Override
+	public int replaceAll(E e, E f) 
+	{
+		//replaces all instances of element e with element f
+		//returns total number of instances replaced		
+		int instancesReplaced = 0;
+		if(!this.contains(e))
+			return instancesReplaced;
+		
+		//Since header is dummy added getNext to start on list. If getNext not added compiler error appears.
+		Node curNode = header.getNext();
+		
+		// Traverse the entire list
+		while (curNode.getNext() != null) 
+		{ 
+			if (curNode.getValue().equals(e)) 
+			{	
+				curNode.setValue(f);	
+				instancesReplaced++;
+			}
+			
+			else {	curNode = curNode.getNext();	}
+		}
+
+//*****QUESTION Hay una forma mas elegante de hacer esto?*********//
+		if(curNode.getValue().equals(e))
+		{	
+			curNode.setValue(f);	
+			instancesReplaced++;
+		}
+		return instancesReplaced;
+	}
 }

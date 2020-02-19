@@ -57,7 +57,25 @@ public class ListTest {
 		System.out.println("Value of element at position 2 after set: " + theList.get(2));
 		printList(theList);
 		
-	}
+	//Exercise 2 Tester
+		System.out.println("");
+		System.out.println("EXERCISE 2: REPLACE ALL (LinkedList)");
+
+		//Replacing Apu with Bob
+		List<String> replaceAllTester = factory.newInstance();
+		replaceAllTester.add("Apu");
+		replaceAllTester.add("Moe");
+		replaceAllTester.add("Apu");
+		replaceAllTester.add("Amy");
+		replaceAllTester.add("Apu");
+		replaceAllTester.add("Joe");
+		replaceAllTester.add("Apu");
+
+		System.out.println("Replace All Apu Instances. Expected: 4 | Result " + replaceAllTester.replaceAll("Apu", "Bob"));
+		printList(replaceAllTester);
+	//END Exercise 2 Tester 
+		
+	} //END MAIN 
 
 	private static void printList(List<String> theList) {
 		System.out.println("List size: " + theList.size());

@@ -198,5 +198,24 @@ public class ArrayList<E> implements List<E> {
 	public Iterator<E> iterator() {
 		return new ListIterator();
 	}
+
+	//Exercise 2
+	@Override
+	public int replaceAll(E e, E f) 
+	{
+		//replaces all instances of element e with element f
+		//returns total number of instances replaced
+		int instancesReplaced = 0;
+		for(int i=0; i < this.currentSize; i++)
+		{
+			if(this.elements[i].equals(e))
+			{
+				this.elements[i] = f;
+				instancesReplaced++;
+			}
+		}
+		
+		return instancesReplaced;
+	}
 	
 }
