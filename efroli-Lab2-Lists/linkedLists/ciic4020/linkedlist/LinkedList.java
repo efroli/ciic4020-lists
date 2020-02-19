@@ -298,7 +298,7 @@ public class LinkedList<E> implements List<E> {
 		Node curNode = header.getNext();
 		
 		// Traverse the entire list
-		while (curNode.getNext() != null) 
+		while (curNode != null) 
 		{ 
 			if (curNode.getValue().equals(e)) 
 			{	
@@ -306,14 +306,7 @@ public class LinkedList<E> implements List<E> {
 				instancesReplaced++;
 			}
 			
-			else {	curNode = curNode.getNext();	}
-		}
-
-//*****QUESTION Hay una forma mas elegante de hacer esto?*********//
-		if(curNode.getValue().equals(e))
-		{	
-			curNode.setValue(f);	
-			instancesReplaced++;
+			curNode = curNode.getNext();	
 		}
 		return instancesReplaced;
 	}

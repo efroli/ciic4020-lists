@@ -58,34 +58,34 @@ public class ListTest {
 		printList(theList);
 		
 		
-//	//Exercise 1 Tester
-//		System.out.println("");
-//		System.out.println("EXERCISE 1: TOTAL COUNT");
-//		List<String>[] totalCountArray = new List<String>[3];
-//		
-//		//Counting Apu instances
-//		List<String> totalCountTester = factory.newInstance();
-//		totalCountTester.add("Apu");
-//		totalCountTester.add("Amy");
-//		totalCountTester.add("Moe");
-//		totalCountArray[0] = totalCountTester;
-//		
-//		List<String> totalCountTester2 = factory.newInstance();
-//		totalCountTester2.add("Apu");
-//		totalCountTester2.add("Apu");
-//		totalCountTester2.add("Joe");
-//		totalCountArray[1] = totalCountTester;
-//
-//		List<String> totalCountTester3 = factory.newInstance();
-//		totalCountTester2.add("Moe");
-//		totalCountTester2.add("Amy");
-//		totalCountTester2.add("Joe");
-//		totalCountArray[2] = totalCountTester;
-//
-//		System.out.println("Expected:Total Count of Apu is 3");
-//		System.out.println("Output: Total Count of Apu is " + totalCount("Apu", totalCountArray));
-//		System.out.println("");
-//	//END Exercise 1 Tester
+	//Exercise 1 Tester
+		System.out.println("");
+		System.out.println("EXERCISE 1: TOTAL COUNT");
+		Object[] totalCountArray = new Object[3];
+		
+		//Counting Apu instances
+		List<String> totalCountTester = factory.newInstance();
+		totalCountTester.add("Apu");
+		totalCountTester.add("Amy");
+		totalCountTester.add("Moe");
+		totalCountArray[0] = totalCountTester;
+		
+		List<String> totalCountTester2 = factory.newInstance();
+		totalCountTester2.add("Apu");
+		totalCountTester2.add("Apu");
+		totalCountTester2.add("Joe");
+		totalCountArray[1] = totalCountTester;
+
+		List<String> totalCountTester3 = factory.newInstance();
+		totalCountTester2.add("Moe");
+		totalCountTester2.add("Amy");
+		totalCountTester2.add("Joe");
+		totalCountArray[2] = totalCountTester;
+
+		System.out.println("Expected:Total Count of Apu is 3");
+		System.out.println("Output: Total Count of Apu is " + totalCount("Apu", totalCountArray));
+		System.out.println("");
+	//END Exercise 1 Tester
 		
 	//Exercise 2 Tester
 		System.out.println("");
@@ -114,16 +114,20 @@ public class ListTest {
 	}
 	
 	//Exercise 1
-		public static int totalCount(String s, List<String>[] array) //array of lists, each of type List<String>
+		public static int totalCount(String s, Object[] array) //array of lists, each of type List<String>
 		{
 			//finds total number of copies of string s in all the lists in the array
 			int totalCount = 0;
+			List<String> temp;
 			for(int i=0; i < array.length; i++)
 			{
-				if(array[i].equals(s))
+				temp = (List<String>)array[i];
+				
+				for(int m=0; m<temp.size(); m++)
+				if(temp.get(m).equals(s))
 					totalCount++;
 			}
 			
-			return totalCount; //dummy 
+			return totalCount;
 		}	
 }
