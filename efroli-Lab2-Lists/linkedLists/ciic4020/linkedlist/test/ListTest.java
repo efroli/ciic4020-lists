@@ -75,6 +75,31 @@ public class ListTest {
 		printList(replaceAllTester);
 	//END Exercise 2 Tester 
 		
+	//Exercise 3 Tester
+		System.out.println("");
+		System.out.println("EXERCISE 3: REVERSE (LinkedLists)");
+
+		List<String> reverseTester = factory.newInstance();
+		reverseTester.add("Andy");
+		reverseTester.add("Bob");
+		reverseTester.add("Charles");
+		reverseTester.add("Dwight");
+
+		System.out.println("Original: ");
+		printList(reverseTester);
+
+		System.out.println("");
+		System.out.println("Expected: ");
+		System.out.println("Dwight");
+		System.out.println("Charles");
+		System.out.println("Bob");
+		System.out.println("Andy");
+		System.out.println("");
+
+		System.out.println("Result: ");
+		printList(reverseTester.reverse());
+	//END Exercise 3 Tester 		
+		
 	} //END MAIN 
 
 	private static void printList(List<String> theList) {

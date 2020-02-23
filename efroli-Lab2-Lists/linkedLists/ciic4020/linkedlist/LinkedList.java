@@ -310,4 +310,19 @@ public class LinkedList<E> implements List<E> {
 		}
 		return instancesReplaced;
 	}
+
+	//Exercise 3
+	@Override
+	public List<E> reverse() 
+	{
+		List<E> reversed = new LinkedList<E>();
+
+		for(int i=0; i < this.currentSize; i++)
+		{
+			Node curLastNode = get_node(this.currentSize-1-i);
+			reversed.add(curLastNode.value);
+		}
+		
+		return reversed;
+	}
 }

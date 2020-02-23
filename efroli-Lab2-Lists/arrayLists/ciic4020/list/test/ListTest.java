@@ -84,7 +84,6 @@ public class ListTest {
 
 		System.out.println("Expected:Total Count of Apu is 3");
 		System.out.println("Output: Total Count of Apu is " + totalCount("Apu", totalCountArray));
-		System.out.println("");
 	//END Exercise 1 Tester
 		
 	//Exercise 2 Tester
@@ -105,12 +104,37 @@ public class ListTest {
 		printList(replaceAllTester);
 	//END Exercise 2 Tester 
 		
+	//Exercise 3 Tester
+		System.out.println("");
+		System.out.println("EXERCISE 3: REVERSE (ArrayList)");
+
+		List<String> reverseTester = factory.newInstance();
+		reverseTester.add("Andy");
+		reverseTester.add("Bob");
+		reverseTester.add("Charles");
+		reverseTester.add("Dwight");
+
+		System.out.println("Original: ");
+		printList(reverseTester);
+
+		System.out.println("");
+		System.out.println("Expected: ");
+		System.out.println("Dwight");
+		System.out.println("Charles");
+		System.out.println("Bob");
+		System.out.println("Andy");
+		System.out.println("");
+
+		System.out.println("Result: ");
+		printList(reverseTester.reverse());
+	//END Exercise 3 Tester 		
+		
 	} //END MAIN 
 
 	private static void printList(List<String> theList) {
 		System.out.println("List size: " + theList.size());
 		for (String s : theList)
-			System.out.println(s);;
+			System.out.println(s);
 	}
 	
 	//Exercise 1

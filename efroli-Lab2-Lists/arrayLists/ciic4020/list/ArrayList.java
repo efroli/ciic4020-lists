@@ -217,5 +217,17 @@ public class ArrayList<E> implements List<E> {
 		
 		return instancesReplaced;
 	}
+
+	//Exercise 3
+	@Override
+	public List<E> reverse() 
+	{
+		List<E> reversed = new ArrayList<E>(this.currentSize);
+		for(int i = this.currentSize-1; i>=0; i--)
+		{
+			reversed.add(this.elements[i]);
+		}
+		return reversed;
+	}
 	
 }

@@ -20,4 +20,7 @@ public interface List<E> extends Iterable<E> {
 	
 	//Exercise 2
 	public int replaceAll(E e, E f);
+	
+	//Exercise 3
+	public List<E> reverse();
 }
