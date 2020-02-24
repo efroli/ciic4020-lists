@@ -390,24 +390,3 @@ public class DoublyLinkedList<E> implements List<E> {
 //END Implementation of previous exercises
 //END Exercise 4
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
