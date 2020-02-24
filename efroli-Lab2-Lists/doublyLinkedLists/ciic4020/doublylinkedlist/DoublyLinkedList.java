@@ -169,9 +169,10 @@ public class DoublyLinkedList<E> implements List<E> {
 			// If we have A <-> B <-> C, need to get to A <-> C
 			curNode.setNext(nextNode.getNext());
 			
-//Exercise 4
+		//Exercise 4
 			// TODO For a DLL, what else needs to be done? See comment above for a hint.
-	
+			nextNode.next.setPrev(curNode);
+			
 			nextNode.clear(); // free up resources
 			currentSize--;
 			return true;
@@ -180,7 +181,7 @@ public class DoublyLinkedList<E> implements List<E> {
 			return false;
 	}
 //END remove Exercise 4
-
+	
 //Exercise 4 remove with index
 	@Override
 	public boolean remove(int index) {
@@ -194,8 +195,10 @@ public class DoublyLinkedList<E> implements List<E> {
 		// If we have A <-> B <-> C, need to get to A <-> C
 		rmNode = get_node(index); // Get the node that is to be removed
 		
-//Exercise 4
+		//Exercise 4
 		// TODO For a DLL, what needs to be done?
+		rmNode.prev.setNext(rmNode.next);
+		rmNode.next.setPrev(rmNode.prev);
 
 		rmNode.clear();
 		currentSize--;		
@@ -222,7 +225,6 @@ public class DoublyLinkedList<E> implements List<E> {
 		return curNode;
 	}
 
-	
 //Exercise 4 removeAll
 	@Override
 	public int removeAll(E obj) {
@@ -238,17 +240,19 @@ public class DoublyLinkedList<E> implements List<E> {
 		 */
 		
 		// Traverse the entire list
-		while (nextNode != trailer) { 
-			if (nextNode.getValue().equals(obj)) {
+		while (nextNode != trailer) 
+		{ 
+			if (nextNode.getValue().equals(obj)) 
+			{
+			//Exercise 4			
 				// Remove nextNode
-
-//Exercise 4			
 				/* TODO For a DLL, what needs to be done?
 				 * You can declare more Node variables if it helps make things clear.
 				 */
+				this.remove(nextNode.value);
 
 				nextNode.clear();
-				currentSize--;
+//				currentSize--; Removed because "this.remove()" method reduces size. Was causing issues.
 				counter++;
 				/* Node that was pointed to by nextNode no longer exists
 				   so reset it such that it's still the node after curNode */
@@ -344,17 +348,66 @@ public class DoublyLinkedList<E> implements List<E> {
 //Exercise 4: Implementation of previous exercises. 
 //Exercise 2
 	@Override
-	public int replaceAll(E e, E f) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int replaceAll(E e, E f) 
+	{
+		//replaces all instances of element e with element f
+		//returns total number of instances replaced		
+		int instancesReplaced = 0;
+		if(!this.contains(e))
+			return instancesReplaced;
+
+		//Since header is dummy added getNext to start on list. If getNext not added compiler error appears.
+		Node curNode = header.getNext();
+
+		// Traverse the entire list
+		while (curNode != trailer) 
+		{ 
+			if (curNode.getValue().equals(e)) 
+			{	
+				curNode.setValue(f);	
+				instancesReplaced++;
+			}
+
+			curNode = curNode.getNext();	
+		}
+		return instancesReplaced;	
 	}
 
 //Exercise 3
 	@Override
-	public List<E> reverse() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<E> reverse() 
+	{
+		List<E> reversed = new DoublyLinkedList<E>();
+
+		for(int i=0; i < this.currentSize; i++)
+		{
+			Node curLastNode = get_node(this.currentSize-1-i);
+			reversed.add(curLastNode.value);
+		}
+		
+		return reversed;	
 	}
 //END Implementation of previous exercises
 //END Exercise 4
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
