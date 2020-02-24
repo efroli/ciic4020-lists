@@ -9,6 +9,8 @@ public class ListTest {
 	public static void main(String[] args) {
 		ListFactory<String> factory = new LinkedListFactory<String>();
 		List<String> theList = factory.newInstance();
+		System.out.println("LINKED LIST TESTER");
+		System.out.println("");
 		
 		System.out.println("Testing Add");
 		theList.add("Ron");

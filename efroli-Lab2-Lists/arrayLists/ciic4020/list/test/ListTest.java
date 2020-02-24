@@ -9,7 +9,8 @@ public class ListTest {
 	public static void main(String[] args) {
 		ListFactory<String> factory = new ArrayListFactory<String>();
 		List<String> theList = factory.newInstance();
-		
+		System.out.println("ARRAY LIST TESTER");
+		System.out.println("");
 		System.out.println("Testing Add");
 		theList.add("Ron");
 		theList.add("Jil");
